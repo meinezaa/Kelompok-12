@@ -1,132 +1,111 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Supaya padding tidak menambah ukuran elemen */
+  box-sizing: border-box;
 }
 
-/* ===== BODY / LATAR HALAMAN ===== */
 body {
-  font-family: "Courier New", Courier, monospace;
-  background-color: #f4f6f8; /* Warna abu soft */
-  padding: 40px 20px; /* Jarak atas-bawah & samping */
-  color: #333; /* Warna teks utama */
-  text-align: center; /* Biar tombol luar form bisa ke tengah */
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f7fb;
+  padding: 40px 20px;
+  color: #333;
 }
 
-/* ===== JUDUL ===== */
 h2 {
   font-size: 30px;
   text-align: center;
-  font-weight: 600;
   margin-bottom: 5px;
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 22px;
   text-align: center;
-  font-weight: 500;
   color: #555;
 }
 
 h4 {
-  font-size: 22px;
+  font-size: 16px;
   text-align: center;
-  font-weight: 400;
   color: #777;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
-/* ===== FORM CONTAINER ===== */
 form {
   width: 100%;
-  max-width: 600px; /* biar fieldset ga dikasih ruang kosong */
-  margin: 0 auto;
+  max-width: 900px;
+  margin: auto;
 }
 
-/* ===== FIELDSET JADI CARD ===== */
-/* Supaya tiap bagian terlihat seperti kotak */
 fieldset {
   border: none;
-  border-radius: 12px;
-  padding: 30px 35px;
-
+  border-radius: 18px;
+  padding: 40px;
   background: #ffffff;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 
-  max-width: 520px; /* ini yang bikin kotaknya ngecil */
-  margin: 0 auto; /* ini bikin dia tetap di tengah */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px 30px;
 }
 
-/* ===== JUDUL FIELDSET ===== */
 legend {
+  grid-column: span 2;
+  font-size: 24px;
   font-weight: 600;
+  margin-bottom: 10px;
   color: #2e7d32;
-  padding: 0 8px;
 }
 
-/* ===== SETIAP INPUT BLOCK ===== */
-/* Label + input ditumpuk ke bawah */
-form {
-  width: 100%;
-  max-width: 650px; /* lebih kecil biar kayak contoh */
-  margin: 0 auto;
+fieldset p {
+  display: flex;
+  flex-direction: column;
 }
 
-/* ===== LABEL ===== */
 label {
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 6px;
 }
 
-fieldset p label {
-  text-align: right;
-  padding-right: 15px;
-}
-
-/* ===== INPUT, SELECT, TEXTAREA ===== */
 input,
 select,
 textarea {
-  padding: 10px 12px;
-  border: 1px solid #d0d7de;
-  border-radius: 8px;
-  font-size: 14px;
-  transition: 0.2s ease; /* Animasi halus saat fokus */
-  max-width: 420px;
   width: 100%;
+  padding: 13px;
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.2s;
 }
 
-/* ===== SAAT DIKLIK ===== */
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: #2e7d32;
-  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
-  outline: none; /* Hilangkan garis biru default */
+  outline: none;
+  border-color: #3b6ef5;
+  box-shadow: 0 0 0 3px rgba(59, 110, 245, 0.15);
 }
 
-/* ===== TEXTAREA ===== */
 textarea {
-  min-height: 90px;
-  resize: vertical; /* Hanya bisa ditarik atas-bawah */
+  min-height: 100px;
+  resize: vertical;
 }
 
-/* ===== RADIO BUTTON ===== */
 input[type="radio"] {
-  width: auto; /* Jangan ikut full width */
-  margin-right: 6px;
+  width: auto;
+  margin-right: 5px;
 }
 
-/* ===== SPASI KHUSUS SELECT ===== */
-#divisi1 {
-  margin-bottom: 10px;
+fieldset p:last-of-type {
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
 }
 
 /* ===== TOMBOL YANG ADA DI DALAM FORM ===== */
 form > button {
-  grid-column: span 2; /* Tombol melebar 2 kolom */
-  justify-self: center; /* Tengah */
+  grid-column: span 2;
+  justify-self: center;
   width: 220px;
   padding: 12px;
   margin-top: 10px;
@@ -189,38 +168,16 @@ button[type="reset"]:hover {
   background-color: blue;
 }
 
-input[type="radio"] {
+button[type="submit"],
+button[type="reset"] {
   display: inline-block;
-  margin-right: 5px;
+  width: 250px;
 }
 
-input[type="radio"] + * {
-  margin-right: 15px;
+button[type="submit"] {
+  margin-left: calc(50% - 260px);
 }
 
-/* ===== KHUSUS BAGIAN RADIO (YA / TIDAK) ===== */
-/* override dari fieldset p yang column tadi */
-
-fieldset p:last-of-type {
-  flex-direction: row !important; /* ubah jadi horizontal */
-  align-items: center; /* sejajarkan */
-  gap: 10px; /* jarak antar item */
-  flex-wrap: wrap; /* biar label tetap di atas */
-}
-
-/* label pertanyaan tetap full lebar */
-fieldset p:last-of-type label {
-  width: 100%;
-  margin-bottom: 8px;
-}
-
-/* radio jangan ikut full width */
-fieldset p:last-of-type input[type="radio"] {
-  width: auto;
-  margin-left: 5px;
-}
-
-/* radio tetap horizontal */
-fieldset p:last-of-type {
-  grid-template-columns: 160px auto;
+button[type="reset"] {
+  margin-left: 20px;
 }
